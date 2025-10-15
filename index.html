@@ -1,54 +1,140 @@
-<!DOCTYPE html>
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aires Fit - Em Breve</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
-      color: #fff;
-      font-family: 'Poppins', sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-    }
-
-    img {
-      max-width: 300px;
-      margin-bottom: 30px;
-    }
-
-    h1 {
-      font-size: 2rem;
-      letter-spacing: 1px;
-      color: #ffffff;
-    }
-
-    p {
-      font-size: 1.2rem;
-      color: #4caf50;
-      margin-top: 10px;
-    }
-
-    .line {
-      width: 80px;
-      height: 3px;
-      background: #4caf50;
-      margin: 20px auto;
-      border-radius: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aires Fit - Liberte Seu Poder</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
-  <img src="e94b99b2-69ca-4b05-bbc1-e1ec3328e39e.png" alt="Logo Wesley Aires Fit">
-  <h1>Em Breve</h1>
-  <div class="line"></div>
-  <p>Estamos preparando algo especial para você.</p>
+    <header class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <div class="logo">
+                <span>Aires Fit</span>
+            </div>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav-menu">
+                <ul class="nav-links" role="list">
+                    <li><a href="#inicio" class="nav-link">Início</a></li>
+                    <li><a href="#aulas" class="nav-link">Aulas</a></li>
+                    <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                    <li><a href="#contato" class="btn-nav">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="inicio" aria-label="Hero section">
+        <canvas id="particles" aria-hidden="true"></canvas>
+        <div class="hero-content">
+            <h2>A transformação começa aqui.</h2>
+            <h1 class="animate-text">Liberte o seu poder. Seu corpo, seu ritmo, seu estilo <span>Aires Fit</span>.</h1>
+            <p>Aulas individuais e práticas fitness criadas para o seu ritmo e objetivos. Treine de onde estiver.</p>
+            <a href="#aulas" class="btn-primary">Explorar Aulas e Planos</a>
+        </div>
+    </section>
+
+    <section class="aulas" id="aulas" aria-label="Featured classes">
+        <h2>Aulas em Destaque</h2>
+        <div class="aulas-grid">
+            <div class="card available" role="article">
+                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.FszxID4uySkqbhx_gKISXwHaE7%3Fcb%3D12%26pid%3DApi&f=1&ipt=134ea9af111bdee8d8ae8ea0dd9eeed34000c7cf79bafcbb9f4b346dc84c2dbb&ipo=images" alt="Aula de Step">
+                <h3>Coreografia de Step</h3>
+                <p>Aprenda movimentos e ritmos em aulas dinâmicas e de alto gasto calórico. <strong>AULA DISPONÍVEL!</strong></p>
+            </div>
+            <div class="card unavailable" role="article">
+                <div class="overlay">Em Breve</div>
+                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdietaja.org%2Fwp-content%2Fuploads%2F2018%2F10%2Ftreino-hiit-pulo.jpg&f=1&nofb=1&ipt=456b16fc166c059c745ea797ac4f950e2ed2d0ac82633ccf081371ffb3cdd01b" alt="Aula de HIIT">
+                <h3>HIIT para Todos</h3>
+                <p>Treinos intensos e rápidos para queimar calorias e aumentar sua resistência.</p>
+            </div>
+            <div class="card unavailable" role="article">
+                <div class="overlay">Em Breve</div>
+                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.saudedica.com.br%2Fwp-content%2Fuploads%2F2020%2F04%2Fbeneficios-do-treino-HIT.jpg&f=1&nofb=1&ipt=9ff4fbc88a0f03bb0918b40650e55d312a6c184f79906f9fef7c87cc3b60e998" alt="Alongamento e Mobilidade">
+                <h3>Alongamento e Mobilidade</h3>
+                <p>Melhore sua flexibilidade, postura e previna lesões com rotinas focadas.</p>
+            </div>
+            <div class="card unavailable" role="article">
+                <div class="overlay">Em Breve</div>
+                <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fs3-sa-east-1.amazonaws.com%2Fheroku-exercicioemcasa%2Fwp-content%2Fuploads%2F2016%2F12%2F08235121%2Fnossos-treinadores-montam-a-sua-rotina-de-treinos.jpg&f=1&nofb=1&ipt=47460b0467ac6fac5e55b3cb13add7e8a46731af66b50f6e8cfc4870b551a23e" alt="Ioga">
+                <h3>Série de Ioga e Flexibilidade</h3>
+                <p>Equilíbrio, força e meditação para conectar corpo e mente. Novo módulo.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="sobre" id="sobre" aria-label="About section">
+        <div class="sobre-container">
+            <img src="imagens/instrutor.jpg" alt="Instrutor Wesley Aires" class="foto-instrutor">
+            <div class="sobre-texto">
+                <h2>Sobre Aires Fit</h2>
+                <p>Com anos de experiência em treinamento físico e aulas dinâmicas, Wesley Aires traz energia, técnica e motivação para cada aula. <strong>O objetivo é simples: ajudar você a conquistar sua melhor versão — um treino de cada vez.</strong></p>
+                <p>Nossas aulas são projetadas para todos os níveis, focando em resultados sustentáveis e na criação de um relacionamento positivo com o exercício. Comece hoje a mover seu corpo com propósito.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contato" id="contato" aria-label="Contact section">
+        <h2>Pronto para Começar?</h2>
+        <p>Escolha o plano ideal e liberte o seu melhor! Preencha o formulário ou clique abaixo para ver os preços.</p>
+        <form class="contact-form" action="#" method="post" aria-label="Contact form">
+            <input type="text" name="name" placeholder="Seu Nome" required aria-label="Nome">
+            <input type="email" name="email" placeholder="Seu E-mail" required aria-label="E-mail">
+            <textarea name="message" placeholder="Sua Mensagem" required aria-label="Mensagem"></textarea>
+            <button type="submit" class="btn-primary">Enviar Mensagem</button>
+        </form>
+        <a href="#aulas" class="btn-primary">Ver Planos e Preços</a>
+    </section>
+
+    <footer class="footer" role="contentinfo">
+        <p>© 2025 Aires Fit - Todos os direitos reservados. Design por [Seu Nome/Agência]</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
