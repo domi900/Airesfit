@@ -691,4 +691,7 @@ body {
     .contact-form textarea {
         padding: 10px;
     }
+    .p strong{
+       color: #ffff00;
+    }
 }
