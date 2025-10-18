@@ -42,7 +42,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aires Fit - Liberte Seu Poder</title>
+    <title>AiresFit - Liberte Seu Poder</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="favicon.png">
@@ -82,28 +82,35 @@
     <section class="aulas" id="aulas" aria-label="Featured classes">
         <h2>Aulas em Destaque</h2>
         <div class="aulas-grid">
-            <div class="card available" role="article">
+            <div class="card available" role="article" data-module="step" aria-label="Módulo Coreografia de Step">
                 <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.FszxID4uySkqbhx_gKISXwHaE7%3Fcb%3D12%26pid%3DApi&f=1&ipt=134ea9af111bdee8d8ae8ea0dd9eeed34000c7cf79bafcbb9f4b346dc84c2dbb&ipo=images" alt="Aula de Step">
                 <h3>Coreografia de Step</h3>
                 <p>Aprenda a construir coreografias com movimentos e ritmos dinâmicos potencializando sua aula com um alto gasto calórico. <strong id="modolo" class="modulo">MÓDULOS DISPONÍVEIS!</strong></p>
             </div>
-            <div class="card unavailable" role="article">
+            <div class="card unavailable" role="article" aria-label="Módulo HIIT para Todos">
                 <div class="overlay">Em Breve</div>
                 <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdietaja.org%2Fwp-content%2Fuploads%2F2018%2F10%2Ftreino-hiit-pulo.jpg&f=1&nofb=1&ipt=456b16fc166c059c745ea797ac4f950e2ed2d0ac82633ccf081371ffb3cdd01b" alt="Aula de HIIT">
                 <h3>HIIT para Todos</h3>
                 <p>Treinos intensos e rápidos para queimar calorias e aumentar sua resistência.</p>
             </div>
-            <div class="card unavailable" role="article">
+            <div class="card unavailable" role="article" aria-label="Módulo Alongamento e Mobilidade">
                 <div class="overlay">Em Breve</div>
                 <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.saudedica.com.br%2Fwp-content%2Fuploads%2F2020%2F04%2Fbeneficios-do-treino-HIT.jpg&f=1&nofb=1&ipt=9ff4fbc88a0f03bb0918b40650e55d312a6c184f79906f9fef7c87cc3b60e998" alt="Alongamento e Mobilidade">
                 <h3>Alongamento e Mobilidade</h3>
                 <p>Melhore sua flexibilidade, postura e previna lesões com rotinas focadas.</p>
             </div>
-            <div class="card unavailable" role="article">
+            <div class="card unavailable" role="article" aria-label="Módulo Série de Ioga e Flexibilidade">
                 <div class="overlay">Em Breve</div>
                 <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fs3-sa-east-1.amazonaws.com%2Fheroku-exercicioemcasa%2Fwp-content%2Fuploads%2F2016%2F12%2F08235121%2Fnossos-treinadores-montam-a-sua-rotina-de-treinos.jpg&f=1&nofb=1&ipt=47460b0467ac6fac5e55b3cb13add7e8a46731af66b50f6e8cfc4870b551a23e" alt="Ioga">
                 <h3>Série de Ioga e Flexibilidade</h3>
                 <p>Equilíbrio, força e meditação para conectar corpo e mente. Novo módulo.</p>
+            </div>
+        </div>
+        <div class="modal" id="lesson-modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+            <div class="modal-content">
+                <button class="modal-close" aria-label="Fechar modal">&times;</button>
+                <h3 id="modal-title"></h3>
+                <ul id="lesson-list" role="list"></ul>
             </div>
         </div>
     </section>
@@ -113,14 +120,21 @@
             <img src="imagens/instrutor.jpg" alt="Instrutor Wesley Aires" class="foto-instrutor">
             <div class="sobre-texto">
                 <h2>Sobre AiresFit</h2>
-                <p>Com anos de experiência no Treinamento Resistido e aulas de Ginástica de Academia, Wesley Aires traz energia, técnica e motivação para profissionais da Educação Física, ensinando as melhores estratégias para as aulas e os treinos. <strong>O objetivo é simples: ajudar você a conquistar sua melhor versão com aulas atualizadas de excelência.</strong></p>
-                <p>As aulas são projetadas para todos os níveis, focando em resultados sustentáveis e na criação de um relacionamento positivo com o exercício, estimulando os alunos a permanecerem sempre motivados com resultados reais.</p>
-                    <h5>Mestre em Ciências da Reabilitação</h5>
-                    <h5>Especialista em Fisiologia do Exercício</h5>
-                    <h5>Professor Universitário e Pesquisador</h5>
-                    <h5>Coordenador do Curso de Educação Física da FASP</h5>
-                    <h5>Professor de Ginástica de Academia e Palestrante</h5>
-                    <h5>Bacharelado e Licenciatura em Eduacação Física</h5>
+                <div class="sobre-description">
+                    <p>Com anos de experiência no Treinamento Resistido e aulas de Ginástica de Academia, Wesley Aires traz energia, técnica e motivação para profissionais da Educação Física, ensinando as melhores estratégias para as aulas e os treinos. <strong>O objetivo é simples: ajudar você a conquistar sua melhor versão com aulas atualizadas de excelência.</strong></p>
+                    <p>As aulas são projetadas para todos os níveis, focando em resultados sustentáveis e na criação de um relacionamento positivo com o exercício, estimulando os alunos a permanecerem sempre motivados com resultados reais.</p>
+                </div>
+                <div class="sobre-qualifications">
+                    <h3>Qualificações</h3>
+                    <ul role="list">
+                        <li>Mestre em Ciências da Reabilitação</li>
+                        <li>Especialista em Fisiologia do Exercício</li>
+                        <li>Professor Universitário e Pesquisador</li>
+                        <li>Coordenador do Curso de Educação Física da FASP</li>
+                        <li>Professor de Ginástica de Academia e Palestrante</li>
+                        <li>Bacharelado e Licenciatura em Educação Física</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -131,16 +145,56 @@
         <form class="contact-form" action="#" method="post" aria-label="Contact form">
             <input type="text" name="name" placeholder="Seu Nome" required aria-label="Nome">
             <input type="email" name="email" placeholder="Seu E-mail" required aria-label="E-mail">
-            <textarea name="message" placeholder="Sua Mensagem" required aria-label="Mensagem"></textarea>
+            <textarea name="message" placeholder="Escreva suas dúvidas" required aria-label="Mensagem"></textarea>
             <button type="submit" class="btn-primary">Enviar Mensagem</button>
         </form>
         <a href="#aulas" class="btn-primary">Ver Planos e Preços</a>
     </section>
 
     <footer class="footer" role="contentinfo">
-        <p>© 2025 Aires Fit - Todos os direitos reservados. Design por [Seu Nome/Agência]</p>
+        <p>© 2025 AiresFit - Todos os direitos reservados.</p>
     </footer>
 
+    <script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

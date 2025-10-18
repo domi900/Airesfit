@@ -1,6 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
+    const modal = document.getElementById('lesson-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const lessonList = document.getElementById('lesson-list');
+    const modalClose = document.querySelector('.modal-close');
+
+    // Sample lesson data for modules
+    const moduleLessons = {
+        step: [
+            'Aula 1: Introdução aos Ritmos de Step',
+            'Aula 2: Coreografias Básicas',
+            'Aula 3: Combinações Intermediárias',
+            'Aula 4: Coreografias Avançadas',
+            'Aula 5: Técnicas de Ensino para Step'
+        ]
+    };
 
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
@@ -20,6 +35,37 @@ document.addEventListener('DOMContentLoaded', () => {
             navMenu.classList.remove('active');
             hamburger.setAttribute('aria-expanded', 'false');
         });
+    });
+
+    // Handle module card clicks
+    document.querySelectorAll('.card.available').forEach(card => {
+        card.addEventListener('click', () => {
+            const module = card.getAttribute('data-module');
+            const title = card.querySelector('h3').textContent;
+            modalTitle.textContent = title;
+            lessonList.innerHTML = '';
+            const lessons = moduleLessons[module] || [];
+            lessons.forEach(lesson => {
+                const li = document.createElement('li');
+                li.textContent = lesson;
+                lessonList.appendChild(li);
+            });
+            modal.classList.add('active');
+            modal.setAttribute('aria-hidden', 'false');
+        });
+    });
+
+    modalClose.addEventListener('click', () => {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+    });
+
+    // Close modal on outside click
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+            modal.setAttribute('aria-hidden', 'true');
+        }
     });
 
     // Intersection Observer for scroll animations
