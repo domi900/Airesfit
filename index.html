@@ -209,5 +209,34 @@
         }
     </script>
     <script src="script.js"></script>
+    <script>
+        // JavaScript for play button toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const video = document.querySelector('.video-wrapper video');
+            const playButton = document.querySelector('.play-button');
+
+            if (video && playButton) {
+                playButton.style.display = 'flex'; // Show button initially
+
+                playButton.addEventListener('click', () => {
+                    video.play();
+                });
+
+                video.addEventListener('play', () => {
+                    playButton.style.display = 'none';
+                });
+
+                video.addEventListener('pause', () => {
+                    if (video.currentTime > 0 && !video.ended) {
+                        playButton.style.display = 'flex';
+                    }
+                });
+
+                video.addEventListener('ended', () => {
+                    playButton.style.display = 'flex';
+                });
+            }
+        });
+    </script>
 </body>
 </html>
