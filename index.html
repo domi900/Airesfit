@@ -37,47 +37,7 @@
         }
         return gk_fileData[filename] || "";
         }
-        </script><script type="text/javascript">
-    var gk_isXlsx = false;
-    var gk_xlsxFileLookup = {};
-    var gk_fileData = {};
-    function filledCell(cell) {
-        return cell !== '' && cell != null;
-    }
-    function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                    row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                    headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-    }
-</script>
-<!DOCTYPE html>
+        </script><!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -172,7 +132,7 @@
         <div class="sobre-container">
             <img src="imagens/instrutor.jpg" alt="Instrutor Wesley Aires" class="foto-instrutor">
             <div class="sobre-texto">
-                <h2>Sobre o Instrutor</h2>
+                <h2>Sobre AiresFit</h2>
                 <div class="sobre-description">
                     <p>Com anos de experiência no Treinamento Resistido e aulas de Ginástica de Academia, Wesley Aires traz energia, técnica e motivação para profissionais da Educação Física, ensinando as melhores estratégias para as aulas e os treinos. <strong>O objetivo é simples: ajudar você a conquistar sua melhor versão com aulas atualizadas de excelência.</strong></p>
                     <p>As aulas são projetadas para todos os níveis, focando em resultados sustentáveis e na criação de um relacionamento positivo com o exercício, estimulando os alunos a permanecerem sempre motivados com resultados reais.</p>
@@ -194,7 +154,7 @@
 
     <section class="contato" id="contato" aria-label="Contact section">
         <h2>Pronto para Começar?</h2>
-        <p>Tem alguma dúvida? Estamos prontos pra te ajudar!</p>
+        <p>Escolha o plano ideal e liberte o seu melhor!</p>
         <form class="contact-form" action="https://formsubmit.co/contato@airesfit.com.br" method="post" aria-label="Contact form">
             <input type="text" name="name" placeholder="Seu Nome" required aria-label="Nome">
             <input type="email" name="email" placeholder="Seu E-mail" required aria-label="E-mail">
@@ -213,70 +173,41 @@
         var gk_xlsxFileLookup = {};
         var gk_fileData = {};
         function filledCell(cell) {
-            return cell !== '' && cell != null;
+          return cell !== '' && cell != null;
         }
         function loadFileData(filename) {
-            if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-                try {
-                    var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                    var firstSheetName = workbook.SheetNames[0];
-                    var worksheet = workbook.Sheets[firstSheetName];
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
 
-                    // Convert sheet to JSON to filter blank rows
-                    var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                    // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                    var filteredData = jsonData.filter(row => row.some(filledCell));
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
 
-                    // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                    var headerRowIndex = filteredData.findIndex((row, index) =>
-                        row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                    );
-                    // Fallback
-                    if (headerRowIndex === -1 || headerRowIndex > 25) {
-                        headerRowIndex = 0;
-                    }
-
-                    // Convert filtered JSON back to CSV
-                    var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                    csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                    return csv;
-                } catch (e) {
-                    console.error(e);
-                    return "";
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
                 }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
             }
-            return gk_fileData[filename] || "";
+        }
+        return gk_fileData[filename] || "";
         }
     </script>
     <script src="script.js"></script>
-    <script>
-        // JavaScript for play button toggle
-        document.addEventListener('DOMContentLoaded', () => {
-            const video = document.querySelector('.video-wrapper video');
-            const playButton = document.querySelector('.play-button');
-
-            if (video && playButton) {
-                playButton.style.display = 'flex'; // Show button initially
-
-                playButton.addEventListener('click', () => {
-                    video.play();
-                });
-
-                video.addEventListener('play', () => {
-                    playButton.style.display = 'none';
-                });
-
-                video.addEventListener('pause', () => {
-                    if (video.currentTime > 0 && !video.ended) {
-                        playButton.style.display = 'flex';
-                    }
-                });
-
-                video.addEventListener('ended', () => {
-                    playButton.style.display = 'flex';
-                });
-            }
-        });
-    </script>
 </body>
 </html>
