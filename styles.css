@@ -6,7 +6,7 @@
 
 body {
     font-family: "Poppins", sans-serif;
-    background-color: #0d0d0d;
+    background: linear-gradient(to bottom, #0d0d0d 0%, #003f27 100%);
     color: #fff;
     scroll-behavior: smooth;
 }
@@ -242,7 +242,7 @@ strong {
 
 /* ======= Seção de Vídeo ======= */
 .video-apresentacao {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 168, 107, 0.6) 100%);
+  background: transparent;
   padding: 5rem 2rem;
   text-align: center;
   color: #fff;
@@ -319,7 +319,7 @@ strong {
 .aulas {
     padding: 4rem 1rem;
     text-align: center;
-    background: #111;
+    background: transparent;
 }
 
 .aulas h2 {
@@ -497,97 +497,87 @@ strong {
 }
 
 /* Sobre */
-.sobre {
-    background: #0d0d0d;
-    padding: 4rem 1rem;
-    overflow: hidden;
+/* ==== SESSÃO SOBRE O PROFESSOR ==== */
+.sobre-professor {
+  background: transparent;
+  color: #f1f1f1;
+  padding: 80px 0;
 }
 
-.sobre-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    gap: 2rem;
-    justify-content: center;
+.sobre-professor .container {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.foto-instrutor {
-    width: 300px;
-    max-width: 100%;
-    border: 4px solid #00A86B;
-    border-radius: 16px;
-    object-fit: cover;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 168, 107, 0.5);
-    transform: rotateZ(-1deg);
-    transition: transform 0.4s ease-in-out;
-    opacity: 0;
-    transform: translateY(30px) rotateZ(-1deg);
+.imagem-professor img {
+  max-width: 420px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 255, 128, 0.25);
+  border: 2px solid rgba(0, 255, 128, 0.4);
+  transition: 0.4s ease;
 }
 
-.foto-instrutor.animate {
-    animation: slideInUp 0.8s ease-out forwards;
+.imagem-professor img:hover {
+  box-shadow: 0 0 35px rgba(0, 255, 128, 0.6);
+  transform: scale(1.03);
 }
 
-.foto-instrutor:hover {
-    transform: rotateZ(0deg) scale(1.02);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(0, 168, 107, 0.8);
+.texto-professor {
+  max-width: 600px;
 }
 
-.sobre-texto {
-    flex: 1;
-    max-width: 600px;
-    opacity: 0;
-    transform: translateY(30px);
+.texto-professor h2 {
+  color: #00ff88;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
-.sobre-texto.animate {
-    animation: slideInUp 0.8s ease-out forwards;
+.texto-professor h3 {
+  color: #00ff88;
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
 }
 
-.sobre-texto h2 {
-    font-size: 2.5rem;
-    color: #00A86B;
-    margin-bottom: 1.5rem;
-    font-weight: 800;
+.texto-professor p {
+  line-height: 1.7;
+  margin-bottom: 1rem;
 }
 
-.sobre-description p {
-    color: #ccc;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
+.texto-professor .destaque {
+  border-left: 4px solid #00ff88;
+  padding-left: 15px;
+  font-style: italic;
+  color: #ffcf40;
+  margin: 1.2rem 0;
 }
 
-.sobre-qualifications {
-    margin-top: 2rem;
+.qualificacoes {
+  list-style: none;
+  padding: 0;
 }
 
-.sobre-qualifications h3 {
-    font-size: 1.6rem;
-    color: #00A86B;
-    margin-bottom: 1rem;
+.qualificacoes li {
+  margin: 0.4rem 0;
+  font-size: 1rem;
 }
 
-.sobre-qualifications ul {
-    list-style: none;
+/* Botão */
+.btn-verde {
+  display: inline-block;
+  background-color: #00ff88;
+  color: #000;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
-.sobre-qualifications li {
-    font-size: 1rem;
-    color: #ccc;
-    padding: 0.5rem 0;
-    position: relative;
-    padding-left: 1.5rem;
-}
-
-.sobre-qualifications li::before {
-    content: '•';
-    color: #00A86B;
-    position: absolute;
-    left: 0;
-    font-size: 1.2rem;
+.btn-verde:hover {
+  background-color: #00cc66;
+  transform: translateY(-2px);
 }
 
 @keyframes slideInUp {
@@ -597,7 +587,7 @@ strong {
 
 /* Contato */
 .contato {
-    background-color: #1a1a1a;
+    background: transparent;
     padding: 4rem 1rem;
     text-align: center;
     color: #fff;
