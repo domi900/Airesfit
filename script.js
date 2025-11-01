@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Vídeo de apresentação fixo
             videoContainer.innerHTML = `
                 <video controls autoplay muted loop style="width:100%;height:300px;object-fit:cover;border-radius:10px;">
-                    <source src="video/ApresentacaoSite.mp4" type="video/mp4">
+                    <source src="video/Bem-vindosasessãodeStep.mp4" type="video/mp4">
                     Seu navegador não suporta vídeo.
                 </video>
             `;
