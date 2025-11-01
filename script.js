@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Dados das aulas / links Hotmart
     const moduleLessons = {
         step: [
-            { title: "Aula 1: Introdução aos Ritmos e Coreografias", hotmart: "https://go.hotmart.com/F102720032Q?dp=1" },
-            { title: "Aula 2: Coreografias Básicas", hotmart: "https://go.hotmart.com/Y102720323R?dp=1" },
-            { title: "Aula 3: Combinações Intermediárias", hotmart: "https://go.hotmart.com/D102720815P?dp=1" }
+            { title: "Módulo 1 de Coreografia", hotmart: "https://go.hotmart.com/F102720032Q?dp=1" },
+            { title: "Módulo 2 de Coreografia", hotmart: "https://go.hotmart.com/Y102720323R?dp=1" },
+            { title: "Módulo 3 de Coreografia", hotmart: "https://go.hotmart.com/D102720815P?dp=1" }
         ]
     };
 
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Vídeo de apresentação fixo
             videoContainer.innerHTML = `
-                <video controls autoplay muted loop style="width:100%;height:300px;object-fit:cover;border-radius:10px;">
+                <video controls autoplay loop style="width:100%;height:300px;object-fit:cover;border-radius:10px;">
                     <source src="video/Bem-vindosasessãodeStep.mp4" type="video/mp4">
                     Seu navegador não suporta vídeo.
                 </video>
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         border:none;
                         border-radius:6px;
                         cursor:pointer;
-                    ">Comprar</button>
+                    ">Adquirir</button>
                 `;
 
                 // Botão Comprar
