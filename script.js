@@ -48,10 +48,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Vídeo de apresentação fixo
             videoContainer.innerHTML = `
-                <video controls autoplay loop style="width:100%;height:300px;object-fit:cover;border-radius:10px;">
-                    <source src="bemvindos.mp4" type="video/mp4">
-                    Seu navegador não suporta vídeo.
-                </video>
+                <iframe 
+                    src="https://www.youtube.com/embed/CWMif0lvfmM" 
+                    style="width:100%;height:300px;border-radius:10px;border:none;" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
             `;
 
             const lessons = moduleLessons[module] || [];
