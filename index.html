@@ -1,148 +1,198 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AiresFit - Liberte Seu Poder</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="favicon.png">
-</head>
-<body>
-    <header class="navbar" role="navigation" aria-label="Main navigation">
-        <div class="container">
-            <div class="logo">
-                <span>AiresFit</span>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AiresFit - Liberte Seu Poder</title>
+        <link rel="stylesheet" href="styles.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap"
+            rel="stylesheet">
+        <link rel="icon" type="image/png" href="favicon.png">
+    </head>
+    <body>
+        <header class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="container">
+                <div class="logo">
+                    <span>AiresFit</span>
+                </div>
+                <button class="hamburger" aria-label="Toggle menu"
+                    aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav class="nav-menu">
+                    <ul class="nav-links" role="list">
+                        <li><a href="#inicio" class="nav-link">Início</a></li>
+                        <li><a href="#aulas" class="nav-link">Aulas</a></li>
+                        <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                        <li><a href="#contato" class="btn-nav">Contato</a></li>
+                    </ul>
+                </nav>
             </div>
-            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav class="nav-menu">
-                <ul class="nav-links" role="list">
-                    <li><a href="#inicio" class="nav-link">Início</a></li>
-                    <li><a href="#aulas" class="nav-link">Aulas</a></li>
-                    <li><a href="#sobre" class="nav-link">Sobre</a></li>
-                    <li><a href="#contato" class="btn-nav">Contato</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+        </header>
 
-    <section class="hero" id="inicio" aria-label="Hero section">
-        <canvas id="particles" aria-hidden="true"></canvas>
-        <div class="hero-content">
-            <h2>A transformação começa aqui.</h2>
-            <h1 class="animate-text">Liberte o seu poder, seu corpo, seu ritmo, seu estilo <span>AiresFit</span>.</h1>
-            <p>Aulas individuais e práticas fitness criadas para o seu ritmo e objetivos.</p>
-            <a href="#aulas" class="btn-primary">Explorar Aulas e Planos</a>
-        </div>
-    </section>
-
-    <section class="video-apresentacao" id="video-apresentacao" aria-label="Video presentation">
-        <div class="container">
-            <h2 class="text-center mb-4">Conheça a AiresFit</h2>
-            <div class="video-wrapper">
-                <video controls preload="metadata" poster="imagens/thumb_video.png" aria-label="Video de apresentação do AiresFit">
-                    <source src="video\ApresentacaoSite.mp4" type="video/mp4">
-                    Seu navegador não suporta vídeo HTML5.
-                </video>
-                <button class="play-button" aria-label="Play video"></button>
+        <section class="hero" id="inicio" aria-label="Hero section">
+            <canvas id="particles" aria-hidden="true"></canvas>
+            <div class="hero-content">
+                <h2>A transformação começa aqui.</h2>
+                <h1 class="animate-text">Liberte o seu poder, seu corpo, seu
+                    ritmo, seu estilo <span>AiresFit</span>.</h1>
+                <p>Aulas individuais e práticas fitness criadas para o seu ritmo
+                    e objetivos.</p>
+                <a href="#aulas" class="btn-primary">Explorar Aulas e Planos</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="aulas" id="aulas" aria-label="Featured classes">
-        <h2>Aulas em Destaque</h2>
-        <div class="aulas-grid">
-            <div class="card available" role="article" data-module="step" aria-label="Módulo Coreografia de Step">
-                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.FszxID4uySkqbhx_gKISXwHaE7%3Fcb%3D12%26pid%3DApi&f=1&ipt=134ea9af111bdee8d8ae8ea0dd9eeed34000c7cf79bafcbb9f4b346dc84c2dbb&ipo=images" alt="Aula de Step">
-                <h3>Coreografia de Step</h3>
-                <p>Aprenda a construir coreografias com movimentos e ritmos dinâmicos potencializando sua aula com um alto gasto calórico. <strong id="modolo" class="modulo">MÓDULOS DISPONÍVEIS!</strong></p>
+        <section class="video-apresentacao" id="video-apresentacao"
+            aria-label="Video presentation">
+            <div class="container">
+                <h2 class="text-center mb-4">Conheça a AiresFit</h2>
+                <div class="video-wrapper">
+                    <video controls preload="metadata"
+                        poster="imagens/thumb_video.png"
+                        aria-label="Video de apresentação do AiresFit">
+                        <source src="video\ApresentacaoSite.mp4"
+                            type="video/mp4">
+                        Seu navegador não suporta vídeo HTML5.
+                    </video>
+                    <button class="play-button"
+                        aria-label="Play video"></button>
+                </div>
             </div>
-            <div class="card unavailable" role="article" aria-label="Módulo HIIT para Todos">
-                <div class="overlay">Em Breve</div>
-                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdietaja.org%2Fwp-content%2Fuploads%2F2018%2F10%2Ftreino-hiit-pulo.jpg&f=1&nofb=1&ipt=456b16fc166c059c745ea797ac4f950e2ed2d0ac82633ccf081371ffb3cdd01b" alt="Aula de HIIT">
-                <h3>HIIT para Todos</h3>
-                <p>Treinos intensos e rápidos para queimar calorias e aumentar sua resistência.</p>
+        </section>
+
+        <section class="aulas" id="aulas" aria-label="Featured classes">
+            <h2>Aulas em Destaque</h2>
+            <div class="aulas-grid">
+                <div class="card available" role="article" data-module="step"
+                    aria-label="Módulo Coreografia de Step">
+                    <img
+                        src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.FszxID4uySkqbhx_gKISXwHaE7%3Fcb%3D12%26pid%3DApi&f=1&ipt=134ea9af111bdee8d8ae8ea0dd9eeed34000c7cf79bafcbb9f4b346dc84c2dbb&ipo=images"
+                        alt="Aula de Step">
+                    <h3>Coreografia de Step</h3>
+                    <p>Aprenda a construir coreografias com movimentos e ritmos
+                        dinâmicos potencializando sua aula com um alto gasto
+                        calórico. <strong id="modolo" class="modulo">MÓDULOS
+                            DISPONÍVEIS!</strong></p>
+                </div>
+                <div class="card unavailable" role="article"
+                    aria-label="Módulo HIIT para Todos">
+                    <div class="overlay">Em Breve</div>
+                    <img
+                        src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdietaja.org%2Fwp-content%2Fuploads%2F2018%2F10%2Ftreino-hiit-pulo.jpg&f=1&nofb=1&ipt=456b16fc166c059c745ea797ac4f950e2ed2d0ac82633ccf081371ffb3cdd01b"
+                        alt="Aula de HIIT">
+                    <h3>HIIT para Todos</h3>
+                    <p>Treinos intensos e rápidos para queimar calorias e
+                        aumentar sua resistência.</p>
+                </div>
+                <div class="card unavailable" role="article"
+                    aria-label="Módulo Alongamento e Mobilidade">
+                    <div class="overlay">Em Breve</div>
+                    <img
+                        src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.saudedica.com.br%2Fwp-content%2Fuploads%2F2020%2F04%2Fbeneficios-do-treino-HIT.jpg&f=1&nofb=1&ipt=9ff4fbc88a0f03bb0918b40650e55d312a6c184f79906f9fef7c87cc3b60e998"
+                        alt="Alongamento e Mobilidade">
+                    <h3>Alongamento e Mobilidade</h3>
+                    <p>Melhore sua flexibilidade, postura e previna lesões com
+                        rotinas focadas.</p>
+                </div>
+                <div class="card unavailable" role="article"
+                    aria-label="Módulo Série de Ioga e Flexibilidade">
+                    <div class="overlay">Em Breve</div>
+                    <img
+                        src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fs3-sa-east-1.amazonaws.com%2Fheroku-exercicioemcasa%2Fwp-content%2Fuploads%2F2016%2F12%2F08235121%2Fnossos-treinadores-montam-a-sua-rotina-de-treinos.jpg&f=1&nofb=1&ipt=47460b0467ac6fac5e55b3cb13add7e8a46731af66b50f6e8cfc4870b551a23e"
+                        alt="Ioga">
+                    <h3>Série de Ioga e Flexibilidade</h3>
+                    <p>Equilíbrio, força e meditação para conectar corpo e
+                        mente. Novo módulo.</p>
+                </div>
             </div>
-            <div class="card unavailable" role="article" aria-label="Módulo Alongamento e Mobilidade">
-                <div class="overlay">Em Breve</div>
-                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.saudedica.com.br%2Fwp-content%2Fuploads%2F2020%2F04%2Fbeneficios-do-treino-HIT.jpg&f=1&nofb=1&ipt=9ff4fbc88a0f03bb0918b40650e55d312a6c184f79906f9fef7c87cc3b60e998" alt="Alongamento e Mobilidade">
-                <h3>Alongamento e Mobilidade</h3>
-                <p>Melhore sua flexibilidade, postura e previna lesões com rotinas focadas.</p>
-            </div>
-            <div class="card unavailable" role="article" aria-label="Módulo Série de Ioga e Flexibilidade">
-                <div class="overlay">Em Breve</div>
-                <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fs3-sa-east-1.amazonaws.com%2Fheroku-exercicioemcasa%2Fwp-content%2Fuploads%2F2016%2F12%2F08235121%2Fnossos-treinadores-montam-a-sua-rotina-de-treinos.jpg&f=1&nofb=1&ipt=47460b0467ac6fac5e55b3cb13add7e8a46731af66b50f6e8cfc4870b551a23e" alt="Ioga">
-                <h3>Série de Ioga e Flexibilidade</h3>
-                <p>Equilíbrio, força e meditação para conectar corpo e mente. Novo módulo.</p>
-            </div>
-        </div>
-        <div class="modal" id="lesson-modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
-            <div class="modal-content">
-                <button class="modal-close" aria-label="Fechar modal">&times;</button>
-                <h3 id="modal-title"></h3>
-                <ul id="lesson-list" role="list"></ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="sobre-professor" id="sobre-professor" aria-label="Sobre o professor">
-        <div class="container d-flex align-items-center flex-wrap">
-            <div class="imagem-professor">
-            <img src="imagens/instrutor.jpg" alt="Professor Wesley Aires em palestra" loading="lazy">
+            <div class="modal" id="lesson-modal" role="dialog"
+                aria-labelledby="modal-title" aria-hidden="true">
+                <div class="modal-content">
+                    <button class="modal-close"
+                        aria-label="Fechar modal">&times;</button>
+                    <h3 id="modal-title"></h3>
+                    <div id="video-container" style="margin-bottom:15px;"></div>
+                    <!-- vídeo de apresentação -->
+                    <div id="lesson-cards"></div>
+                    <!-- cards com botão comprar -->
+                </div>
             </div>
 
-            <div class="texto-professor">
-            <h2>Sobre o Professor</h2>
-            <p>
-                Com anos de experiência no <strong>Treinamento Resistido</strong> e nas aulas de <strong>Ginástica de Academia</strong>, 
-                <strong>Wesley Aires</strong> inspira e transforma a forma como profissionais e estudantes de Educação Física 
-                entendem o movimento humano. Une <strong>técnica, energia e ciência</strong> para ensinar estratégias que 
-                realmente funcionam em sala e nos treinos.
-            </p>
+        </section>
 
-            <blockquote class="destaque">
-                "O objetivo é simples: ajudar você a alcançar sua melhor versão com aulas atualizadas."
-            </blockquote>
+        <section class="sobre-professor" id="sobre-professor"
+            aria-label="Sobre o professor">
+            <div class="container d-flex align-items-center flex-wrap">
+                <div class="imagem-professor">
+                    <img src="imagens/instrutor.jpg"
+                        alt="Professor Wesley Aires em palestra" loading="lazy">
+                </div>
 
-            <p>
-                As aulas são projetadas para todos os níveis, com foco em <strong>resultados sustentáveis</strong>, 
-                <strong>motivação constante</strong> e um <strong>relacionamento saudável com o exercício</strong>.
-            </p>
+                <div class="texto-professor">
+                    <h2>Sobre o Professor</h2>
+                    <p>
+                        Com anos de experiência no <strong>Treinamento
+                            Resistido</strong> e nas aulas de <strong>Ginástica
+                            de Academia</strong>,
+                        <strong>Wesley Aires</strong> inspira e transforma a
+                        forma como profissionais e estudantes de Educação Física
+                        entendem o movimento humano. Une <strong>técnica,
+                            energia e ciência</strong> para ensinar estratégias
+                        que
+                        realmente funcionam em sala e nos treinos.
+                    </p>
 
-            <h3>🎓 Qualificações</h3>
-            <ul class="qualificacoes">
-                <li>Mestre em Ciências da Reabilitação</li>
-                <li>Especialista em Fisiologia do Exercício</li>
-                <li>Professor Universitário e Pesquisador</li>
-                <li>Coordenador do Curso de Educação Física (FASP)</li>
-                <li>Professor de Ginástica e Palestrante</li>
-                <li>Bacharelado e Licenciatura em Educação Física</li>
-            </ul>
+                    <blockquote class="destaque">
+                        "O objetivo é simples: ajudar você a alcançar sua melhor versão com aulas atualizadas."
+                    </blockquote>
 
-        </div>
-    </section>
+                    <p>
+                        As aulas são projetadas para todos os níveis, com foco
+                        em <strong>resultados sustentáveis</strong>,
+                        <strong>motivação constante</strong> e um
+                        <strong>relacionamento saudável com o
+                            exercício</strong>.
+                    </p>
 
-    <section class="contato" id="contato" aria-label="Contact section">
-        <h2>Pronto para Começar?</h2>
-        <p>Tem alguma dúvida? Estamos prontos pra te ajudar!</p>
-        <form class="contact-form" action="https://formsubmit.co/contato@airesfit.com.br" method="post" aria-label="Contact form">
-            <input type="text" name="name" placeholder="Seu Nome" required aria-label="Nome">
-            <input type="email" name="email" placeholder="Seu E-mail" required aria-label="E-mail">
-            <textarea name="message" placeholder="Escreva suas dúvidas" required aria-label="Mensagem"></textarea>
-            <button type="submit" class="btn-primary">Enviar Mensagem</button>
-        </form>
-        <a href="#aulas" class="btn-primary">Ver Planos e Preços</a>
-    </section>
+                    <h3>🎓 Qualificações</h3>
+                    <ul class="qualificacoes">
+                        <li>Mestre em Ciências da Reabilitação</li>
+                        <li>Especialista em Fisiologia do Exercício</li>
+                        <li>Professor Universitário e Pesquisador</li>
+                        <li>Coordenador do Curso de Educação Física (FASP)</li>
+                        <li>Professor de Ginástica e Palestrante</li>
+                        <li>Bacharelado e Licenciatura em Educação Física</li>
+                    </ul>
 
-    <footer class="footer" role="contentinfo">
-        <p>© 2025 AiresFit - Todos os direitos reservados.</p>
-    </footer>
+                </div>
+            </section>
 
-    <script type="text/javascript">
+            <section class="contato" id="contato" aria-label="Contact section">
+                <h2>Pronto para Começar?</h2>
+                <p>Tem alguma dúvida? Estamos prontos pra te ajudar!</p>
+                <form class="contact-form"
+                    action="https://formsubmit.co/contato@airesfit.com.br"
+                    method="post" aria-label="Contact form">
+                    <input type="text" name="name" placeholder="Seu Nome"
+                        required aria-label="Nome">
+                    <input type="email" name="email" placeholder="Seu E-mail"
+                        required aria-label="E-mail">
+                    <textarea name="message" placeholder="Escreva suas dúvidas"
+                        required aria-label="Mensagem"></textarea>
+                    <button type="submit" class="btn-primary">Enviar
+                        Mensagem</button>
+                </form>
+                <a href="#aulas" class="btn-primary">Ver Planos e Preços</a>
+            </section>
+
+            <footer class="footer" role="contentinfo">
+                <p>© 2025 AiresFit - Todos os direitos reservados.</p>
+            </footer>
+
+            <script type="text/javascript">
         var gk_isXlsx = false;
         var gk_xlsxFileLookup = {};
         var gk_fileData = {};
@@ -182,8 +232,8 @@
         return gk_fileData[filename] || "";
         }
     </script>
-    <script src="script.js"></script>
-    <script>
+            <script src="script.js"></script>
+            <script>
         // JavaScript for play button toggle
         document.addEventListener('DOMContentLoaded', () => {
             const video = document.querySelector('.video-wrapper video');
@@ -212,5 +262,5 @@
             }
         });
     </script>
-</body>
-</html>
+        </body>
+    </html>
