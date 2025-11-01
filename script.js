@@ -9,11 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Sample lesson data for modules
     const moduleLessons = {
         step: [
-            'Aula 1: Introdução aos Ritmos de Step',
-            'Aula 2: Coreografias Básicas',
-            'Aula 3: Combinações Intermediárias',
-            'Aula 4: Coreografias Avançadas',
-            'Aula 5: Técnicas de Ensino para Step'
+            '<a href="https://go.hotmart.com/F102720032Q?dp=1" target="_blank">Aula 1: Introdução aos Ritmos e Coreografias bem elaboradas no Step.</a>',
+            '<a href="https://go.hotmart.com/Y102720323R?dp=1" target="_blank">Aula 2: Coreografias Básicas</a>',
+            '<a href="https://go.hotmart.com/D102720815P?dp=1" target="_blank">Aula 3: Combinações Intermediárias</a>', 
+            '<a href="" target="_blank">Aula 4: Teoria</a>',
         ]
     };
 
@@ -30,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetId = link.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
             targetElement.scrollIntoView({ behavior: 'smooth' });
-            // Close menu on link click (mobile)
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
             hamburger.setAttribute('aria-expanded', 'false');
@@ -47,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const lessons = moduleLessons[module] || [];
             lessons.forEach(lesson => {
                 const li = document.createElement('li');
-                li.textContent = lesson;
+                li.innerHTML = lesson; // ← link funcionando
                 lessonList.appendChild(li);
             });
             modal.classList.add('active');
@@ -60,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.setAttribute('aria-hidden', 'true');
     });
 
-    // Close modal on outside click
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
             modal.classList.remove('active');
@@ -68,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Intersection Observer for scroll animations
     const observerOptions = {
         root: null,
         threshold: 0.2,
@@ -84,12 +80,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    // Observe elements for animations
     document.querySelectorAll('.card, .foto-instrutor, .sobre-texto, .contact-form').forEach(el => {
         observer.observe(el);
     });
 
-    // Particle Effect
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
@@ -148,7 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
         initParticles();
     });
 
-    // Touch support for mobile navigation
     document.addEventListener('touchstart', (e) => {
         if (!navMenu.contains(e.target) && !hamburger.contains(e.target) && navMenu.classList.contains('active')) {
             hamburger.classList.remove('active');
@@ -157,7 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Ensure hero h1 is fully visible after animation
     const heroH1 = document.querySelector('.hero-content h1');
     heroH1.addEventListener('animationend', () => {
         heroH1.style.clipPath = 'none';
