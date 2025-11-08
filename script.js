@@ -13,7 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
         step: [
             { title: "Módulo 1 de Coreografia", hotmart: "https://go.hotmart.com/F102720032Q?dp=1" },
             { title: "Módulo 2 de Coreografia", hotmart: "https://go.hotmart.com/Y102720323R?dp=1" },
-            { title: "Módulo 3 de Coreografia", hotmart: "https://go.hotmart.com/D102720815P?dp=1" }
+            { title: "Módulo 3 de Coreografia", hotmart: "https://go.hotmart.com/D102720815P?dp=1" },
+            { title: "Módulo 4 Aula de Resistência", hotmart: "https://go.hotmart.com/B102834467T?dp=1" },
+            { title: "Pack de Musicas Atualizadas", hotmart: "https://pay.hotmart.com/R102834684X" },
         ]
     };
 
