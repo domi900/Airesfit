@@ -265,16 +265,16 @@ strong {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-  aspect-ratio: 16 / 9; /* garante proporção fixa mesmo antes do vídeo carregar */
+  aspect-ratio: 16 / 9;
 }
 
 .video-wrapper video {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* mantém a proporção e preenche o espaço */
+  object-fit: cover;
   border-radius: 12px;
   display: block;
-  background-color: #000; /* evita fundo branco durante o carregamento */
+  background-color: #000;
 }
 
 /* Botão de play central */
@@ -449,8 +449,11 @@ strong {
     background: #1a1a1a;
     border-radius: 12px;
     padding: 2rem;
-    max-width: 500px;
+    /* ALTERADO: Aumentei o max-width para caber o grid de cards */
+    max-width: 800px; 
     width: 90%;
+    max-height: 90vh; /* Evita que o modal fique maior que a tela */
+    overflow-y: auto; /* Permite rolar dentro do modal se necessário */
     position: relative;
     animation: fadeInUp 0.3s ease-out;
 }
@@ -464,6 +467,7 @@ strong {
     color: #fff;
     font-size: 1.5rem;
     cursor: pointer;
+    z-index: 10;
 }
 
 .modal-close:hover {
@@ -476,28 +480,12 @@ strong {
     margin-bottom: 1.5rem;
 }
 
-#lesson-list {
-    list-style: none;
-}
-
-#lesson-list li {
-    padding: 0.5rem 0;
-    font-size: 1rem;
-    color: #ccc;
-    border-bottom: 1px solid #333;
-}
-
-#lesson-list li:last-child {
-    border-bottom: none;
-}
-
 @keyframes scaleIn {
     from { opacity: 0; transform: scale(0.9); }
     to { opacity: 1; transform: scale(1); }
 }
 
 /* Sobre */
-/* ==== SESSÃO SOBRE O PROFESSOR ==== */
 .sobre-professor {
   background: transparent;
   color: #f1f1f1;
@@ -655,7 +643,70 @@ strong {
     color: #666;
 }
 
-/* Responsivo */
+/* --- NOVO CSS: Grid de Aulas no Modal --- */
+#lesson-cards {
+    display: grid;
+    /* Cria colunas responsivas: mínimo 220px, máximo 1 fração */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+    padding-bottom: 10px;
+}
+
+/* Estilo do Card Individual */
+.lesson-item-card {
+    background: rgba(255, 255, 255, 0.05); /* Fundo sutil */
+    border: 1px solid #00a86b; /* Borda verde fina */
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Espaça título e botão */
+    text-align: center;
+    min-height: 180px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+/* Hover no Card */
+.lesson-item-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 168, 107, 0.15);
+    background: rgba(0, 168, 107, 0.08);
+}
+
+/* Texto do Módulo */
+.lesson-item-card strong {
+    display: block;
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* Botão dentro do Card */
+.lesson-item-card .buy-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff6b6b;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.lesson-item-card .buy-btn:hover {
+    background-color: #ff4757;
+    transform: scale(1.05);
+}
+
+/* Responsividade geral */
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
@@ -747,9 +798,14 @@ strong {
         font-size: 0.9rem;
     }
 
+    /* Ajuste do Modal no Mobile */
     .modal-content {
         width: 95%;
         padding: 1.5rem;
+    }
+    
+    #lesson-cards {
+        grid-template-columns: 1fr; /* Em telas muito pequenas, 1 coluna */
     }
 
     .sobre {
@@ -782,18 +838,6 @@ strong {
 
     .sobre-texto h2 {
         font-size: 2rem;
-    }
-
-    .sobre-description p {
-        font-size: 0.95rem;
-    }
-
-    .sobre-qualifications h3 {
-        font-size: 1.4rem;
-    }
-
-    .sobre-qualifications li {
-        font-size: 0.95rem;
     }
 
     .contato {
@@ -868,7 +912,6 @@ strong {
     }
 }
 
-/* Responsividade video */
 @media (max-width: 768px) {
   .video-apresentacao {
     padding: 3rem 1rem;
