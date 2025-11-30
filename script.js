@@ -129,28 +129,57 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.card, .foto-instrutor, .sobre-texto, .contact-form').forEach(el => observer.observe(el));
 });
 // Função para copiar chave PIX
+// Função robusta para copiar chave PIX (Funciona em PC e Celular)
 function copyPix() {
-    // Seleciona o campo de texto
-    var copyText = document.getElementById("pixKey");
+    const copyText = document.getElementById("pixKey");
     
-    // Seleciona o texto no mobile
+    // 1. Seleciona o texto visualmente (importante para mobile)
     copyText.select();
-    copyText.setSelectionRange(0, 99999); // Para mobile
+    copyText.setSelectionRange(0, 99999); /* Para dispositivos móveis */
 
-    // Copia para a área de transferência
-    navigator.clipboard.writeText(copyText.value).then(function() {
-        // Feedback visual (opcional)
+    // 2. Função de Feedback Visual (Botão muda de cor)
+    const showFeedback = () => {
         const btn = document.querySelector('.btn-copy');
-        const originalText = btn.innerText;
+        const originalText = "COPIAR"; 
         
         btn.innerText = "COPIADO!";
         btn.style.background = "#fff";
         btn.style.color = "#00A86B";
+        btn.style.borderColor = "#fff";
         
         setTimeout(() => {
             btn.innerText = originalText;
-            btn.style.background = "#00A86B";
+            btn.style.background = "#333"; 
             btn.style.color = "#fff";
+            btn.style.borderColor = "#333";
         }, 2000);
-    });
+    };
+
+    // 3. Tenta copiar usando a API Moderna (Navigator)
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(copyText.value)
+            .then(showFeedback)
+            .catch(() => {
+                // Se der erro na moderna, tenta a antiga
+                tryLegacyCopy();
+            });
+    } else {
+        // Se não suportar a moderna, vai direto para a antiga
+        tryLegacyCopy();
+    }
+
+    // 4. Método "Antigo" (Fallback para Celulares)
+    function tryLegacyCopy() {
+        try {
+            const successful = document.execCommand('copy');
+            if (successful) {
+                showFeedback();
+            } else {
+                throw new Error("Falha ao copiar");
+            }
+        } catch (err) {
+            // Se tudo falhar, avisa o usuário
+            alert("Não foi possível copiar automaticamente. Por favor, selecione o texto e copie manualmente.");
+        }
+    }
 }
