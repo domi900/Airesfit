@@ -128,3 +128,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
     document.querySelectorAll('.card, .foto-instrutor, .sobre-texto, .contact-form').forEach(el => observer.observe(el));
 });
+// Função para copiar chave PIX
+function copyPix() {
+    // Seleciona o campo de texto
+    var copyText = document.getElementById("pixKey");
+    
+    // Seleciona o texto no mobile
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // Para mobile
+
+    // Copia para a área de transferência
+    navigator.clipboard.writeText(copyText.value).then(function() {
+        // Feedback visual (opcional)
+        const btn = document.querySelector('.btn-copy');
+        const originalText = btn.innerText;
+        
+        btn.innerText = "COPIADO!";
+        btn.style.background = "#fff";
+        btn.style.color = "#00A86B";
+        
+        setTimeout(() => {
+            btn.innerText = originalText;
+            btn.style.background = "#00A86B";
+            btn.style.color = "#fff";
+        }, 2000);
+    });
+}

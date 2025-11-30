@@ -863,6 +863,233 @@ strong {
     }
 }
 
+/* --- CSS DA CONSULTORIA (VERSÃO LIMPA) --- */
+.consultoria {
+    padding: 6rem 1rem;
+    background: #0f0f0f; /* Fundo sólido escuro para sobriedade */
+    border-top: 1px solid #222;
+}
+
+.consultoria-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+/* Badge */
+.badge-destaque {
+    background: transparent;
+    border: 1px solid #00A86B;
+    color: #00A86B;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+/* Textos */
+.consultoria-info h2 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    font-weight: 700;
+}
+
+.texto-descritivo {
+    color: #ccc;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    max-width: 90%;
+}
+
+/* Preço */
+.preco-box {
+    margin-bottom: 2rem;
+    border-left: 3px solid #00A86B;
+    padding-left: 20px;
+}
+
+.preco-box .de {
+    display: block;
+    color: #888;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.preco-box .por {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #fff;
+    display: block;
+    line-height: 1;
+    margin: 5px 0;
+}
+
+.pagamento-unico {
+    font-size: 0.9rem;
+    color: #00A86B;
+    font-weight: 500;
+}
+
+/* Área do PIX Simplificada */
+.pix-area {
+    background: #161616;
+    border: 1px solid #333;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.pix-instruction {
+    color: #fff;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.pix-input-group {
+    display: flex;
+    gap: 0; /* Botão colado no input */
+}
+
+.pix-input-group input {
+    width: 100%;
+    background: #000;
+    border: 1px solid #333;
+    border-right: none;
+    color: #ccc;
+    padding: 12px;
+    border-radius: 6px 0 0 6px;
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+.btn-copy {
+    background: #333;
+    color: #fff;
+    border: 1px solid #333;
+    padding: 0 20px;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.8rem;
+    transition: 0.2s;
+}
+
+.btn-copy:hover {
+    background: #00A86B;
+    border-color: #00A86B;
+}
+
+.email-link {
+    color: #fff;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: #00A86B;
+}
+
+.obs-pix {
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: 15px;
+}
+
+/* --- VISUAL (Direita) --- */
+.consultoria-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Foto do Instrutor */
+.visual-main {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 16/10; /* Formato retangular paisagem */
+}
+
+.visual-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.visual-badge {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    color: #fff;
+    padding: 20px 15px 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Linha de Resultados */
+.resultados-row {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.resultado-item {
+    width: 300px;  /* Aumentado de 80px para 120px */
+    height: 300px; /* Aumentado de 80px para 120px */
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #333;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Adicionei uma sombra leve para destacar */
+}
+
+.resultado-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.resultado-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.resultado-info strong {
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.resultado-info span {
+    color: #666;
+    font-size: 0.8rem;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+    .consultoria-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .visual-main {
+        aspect-ratio: 16/9;
+    }
+    
+    .consultoria-info h2 {
+        font-size: 2rem;
+    }
+    
+    .preco-box .por {
+        font-size: 3rem;
+    }
+}
+
 @media (max-width: 480px) {
     .navbar .container {
         padding: 0.8rem 1rem;
