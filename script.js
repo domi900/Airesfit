@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             videoID: "gHKWEl4JXa8", // <--- Coloque aqui o ID do novo vídeo (ex: dQw4w9WgXcQ)
             lessons: [
                 { title: "Aula 1 - Emagrecimento em Casa", hotmart: "https://go.hotmart.com/X103070642O?dp=1" },
-                { title: "Aula 2 - Emagrecimento em Casa", hotmart: "#" },
+                { title: "Aula 2 - Emagrecimento em Casa", hotmart: "https://go.hotmart.com/Y104059659E" },
                 { title: "Aula 3 - Emagrecimento em Casa", hotmart: "#" },
                 { title: "Aula 4 - Emagrecimento em Casa", hotmart: "#" },
                 { title: "Aula 4 - Emagrecimento em Casa", hotmart: "#" }
